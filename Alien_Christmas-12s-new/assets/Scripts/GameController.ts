@@ -21,15 +21,23 @@ export default class GameController extends cc.Component {
     @property(cc.Node)
     popupopen: cc.Node = null;
     @property(cc.Node)
+    text: cc.Node = null;
+    @property(cc.Node)
+    Boss2: cc.Node = null;
+    @property(cc.Node)
     play: cc.Node = null;
     @property(cc.Node)
     Ship: cc.Node = null;
     @property(cc.Node)
     moveHand: cc.Node = null;
+    @property
+    enemyemty = false
+    @property
+    bossemty=false
     @property(cc.Node)
-    canvas: cc.Node = null;
+    boss2: cc.Node = null;
     @property(cc.Node)
-    image: cc.Node = null;
+    iconGame: cc.Node = null;
     @property(cc.Node)
     initBulletPosition:cc.Node=null;
     // @property()
@@ -39,6 +47,20 @@ export default class GameController extends cc.Component {
     sheild: cc.Node = null;
     @property
     sheildNumber: number = 0;
+    @property
+    wight: number = 0;
+    @property
+    height: number = 0;
+    @property
+    wightBf: number = 0;
+    @property
+    heightBf: number = 0;
+    @property
+    enemyemty1: number = 9;
+    @property
+    setPositionDoc: boolean = true;
+    @property
+    setPositionNgang: boolean =true;
     @property({
         type:cc.AudioClip
       })
@@ -48,58 +70,11 @@ export default class GameController extends cc.Component {
       })
      backgroundSound =null;
     onLoad() {
+        this.wight = screen.width;
+        this.height = screen.height;
         var manager= cc.director.getCollisionManager();
         manager.enabled = true;
-        // if (window.matchMedia("(orientation: portrait)").matches) {
-        //     this.node = cc.find("Canvas/ShipHero");
-        //     this.node.setScale(1.2, 1.2);
-        //     //this.node.setPosition(0,300)
-        //     this.node = cc.find("Canvas/Boss");
-        //     this.node.setScale(1.8, 1.8);
-        //     var screen = cc.find("Canvas");
-        //     //this.node.setContentSize(screen.getContentSize().width * this.width / 100, screen.getContentSize().height * this.height / 100)
-        //     this.node = cc.find("Canvas/IconGame");
-        //     this.node.setScale(1.7, 1.7);
-        //     this.node.setPosition(473.664, -1079.431)
-        //     this.node = cc.find("Canvas/PlayNow");
-        //     this.node.setScale(1.6, 1.6);
-        //     this.node.setPosition(29.01, -1104.452)
-        //     this.node = cc.find("Canvas/TextPlay");
-        //     this.node.setScale(1.1,1.1);
-        //     this.node.setPosition(26.712,-303.465)
-           
-        //  }
-        // if (window.matchMedia("(orientation: landscape)").matches) {
-        //     this.node = cc.find("Canvas/ShipHero");
-        //     this.node.setScale(0.6, 0.6);
-        //     this.node.setPosition(20,-250)
-        //     this.node = cc.find("Canvas/Boss");
-        //     this.node.setScale(0.9, 0.9);
-        //     this.node.setPosition(0, 200)
-        //     this.node = cc.find("Canvas/TextPlay");
-        //     this.node.setScale(0.7, 0.7);
-        //     this.node.setPosition(26.712, -90)
-        //     this.node = cc.find("Canvas/IconGame");
-        //     this.node.setPosition(555, -330)
-        //     this.node.setScale(1.1, 1.1);
-        //     this.node = cc.find("Canvas/PlayNow");
-        //     this.node.setScale(1.1, 1.1);
-        //     this.node.setPosition(22.602, -350)
-        //     //this.node.setContentSize(screen.getContentSize().width * this.width / 100, screen.getContentSize().height * this.height / 100)
-         
-        //this.bulletTime = 0;
-        // GameController.Instance = this;
-        // //this.node.getComponent(Test).callTest();
-        // // this.popup.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-        // //     this.moveHand.destroy();
-        // //     this.bulletPool = new cc.NodePool();
-        // // }, this);
-        // this.setTouch();
-        // //this.InitBullet();
-        // //this.createBullet();
-        
-        cc.audioEngine.playEffect(this.backgroundSound, false);
-      
+
     }
     start() {
     }
@@ -144,57 +119,15 @@ export default class GameController extends cc.Component {
         bullet.setPosition(cc.v2(pos.x,pos.y+this.initBulletPosition.height/2))
         //cc.audioEngine.playEffect(this.shoot, false);
         bullet.parent = this.initBulletPosition;
-        // var bullet1 = cc.instantiate(this.shipBullet);
-        // bullet1.setPosition(this.initBulletPosition1.position);
-        // bullet1.parent = this.bulletParent;
-        // var bullet1 = cc.instantiate(this.shipBullet);
-        // bullet1.setPosition(this.initBulletPosition2.position);
-        // bullet1.parent = this.bulletParent; 
-       // cc.audioEngine.setVolume(this.shoot, 0.5);
-        //cc.audioEngine.playEffect(this.shoot,false); 
+
     }   
-    //  createBullet() {
-    //         let bullet = null;
-    //         if (this.bulletPool.size() > 0) { // use size method to check if there're nodes available in the pool
-    //         bullet = this.bulletPool.get();
-    //         } else { // if not enough node in the pool, we call cc.instantiate to create node
-    //            bullet = cc.instantiate(this.shipBullet);
-    //         }
-    //         bullet.parent = this.node;
-    //         console.log(this.node);
-            
-    //         var pos = this.Ship.getPosition();
-    //         bullet.setPosition(cc.v2(pos.x,pos.y+this.Ship.height-30))
-    //     }
-    //     onKill() {
-    //         this.bullerPool.put(bullet);
-    //     }
-    // decreaseBoss(){
-    //     console.log("decreaseBoss");
-    //      this.numberOfBoss-=1;
-    //      if (this.numberOfBoss==0) {
-    //         this.shipMove();
-    //         console.log("dBossDead");
-    //      }
-    // }
-    // initBoss() {
-    //     var boss = cc.instantiate(this.bossPrefab);
-    //     console.log("dduoc goi");
-    //          var moveRight= cc.moveBy(2, 0, -350);
-    //          this.node.runAction(moveRight);
-             
-    //          //
-    //     }
-            //  onLoad () {
-            // var moveRight= cc.moveBy(2, 0, -200);
-            // this.node.runAction(moveRight);
-            //  }
+
     spawShield(x,y) {
         this.sheildNumber++
         if (this.sheildNumber<=2) {
             var shield = cc.instantiate(this.sheild)
             shield.setPosition(x,y);
-            this.node.addChild(shield); 
+            this.node.parent.addChild(shield); 
         }
         
     }
@@ -222,10 +155,109 @@ export default class GameController extends cc.Component {
             } else {
                 mraid.open("https://apps.apple.com/us/app/galaxy-attack-alien-shooter/id1176011642");
             }
-        }
+    }
+    // Bossactive() {
+    //     this.enemyemty1--
+    //     console.log(this.enemyemty1+"enemy1");
+        
+    //     if (this.enemyemty1==0) {
+    //         this.enemyemty=true
+    //     }
+    //     //console.log(this.enemyNumber);
+            
+    //     //       
+    //         //           this.bgBlack.on(cc.Node.EventType.TOUCH_START, function (event) {
+    //         //             if (cc.sys.os == cc.sys.OS_ANDROID) {
+    //         //                 cc.sys.openURL("https://play.google.com/store/apps/details?id=com.alien.shooter.galaxy.attack&hl=vi&gl=US");
+    //         //              } else {
+    //         //                 cc.sys.openURL("https://apps.apple.com/us/app/galaxy-attack-alien-shooter/id1176011642");
+    //         //              }
+    //         // }, this);
+          
+    //      }
+    // Bossactive1() {
+    //     this.bossemty = true;
+    // }
+    
+    
     update() {
        
-        // if (window.matchMedia("(orientation: portrait)").matches) {
+        //console.log(screen.height);
+        //console.log(screen.width);
+        
+        //console.log(this.node.position.x, this.node.position.y);    
+        //this.node = cc.find("Canvas/IconGame");
+        //this.node.setPosition(239.954, -552.514);
+        if (window.matchMedia("(orientation: portrait)").matches) { 
+            if (screen.width==375) {
+                this.iconGame.setPosition(230,-550.508)
+                //     this.node.setScale(1.9, 1.9);
+                this.iconGame.setScale(0.8, 0.8);
+                console.log("chay dc");
+                this.play.setPosition(12.073,-548.461)
+                //     this.node.setScale(1.9, 1.9);
+                this.play.setScale(0.8, 0.8);
+                //this.node = cc.find("Canvas/TEXT");
+                //     this.node.setScale(1.9, 1.9);
+                this.text.setScale(0.8, 0.8);
+                this.text.setPosition(8.234, -55.209)
+             
+            }
+            else {
+                this.Boss2.setScale(0.9,0.9)
+                this.iconGame.setPosition(269.82,-550.508)
+            //     this.node.setScale(1.9, 1.9);
+                this.iconGame.setScale(1, 1); 
+                this.play.setPosition(12.073,-548.461)
+                //     this.node.setScale(1.9, 1.9);
+                this.play.setScale(0.9, 0.9);
+                //this.node = cc.find("Canvas/TEXT");
+                //     this.node.setScale(1.9, 1.9);
+                this.text.setScale(1, 1);
+                this.text.setPosition(8.234, -55.209)
+            }
+            this.node = cc.find("Canvas/resize");
+        //     this.node.setScale(1.9, 1.9);
+            this.node.setScale(1, 1);
+            this.Ship.setScale(0.6,0.6)
+         
+            if (this.setPositionDoc==false) {
+                this.Ship.setPosition(16, -382.86);
+                this.setPositionNgang = false;
+                this.setPositionDoc = true;              
+            }        
+        }
+        if (window.matchMedia("(orientation: landscape)").matches) { 
+            this.node = cc.find("Canvas/resize");
+            //     this.node.setScale(1.9, 1.9);
+            this.node.setScale(0.4, 0.4);
+            this.node.setPosition(21,-10)
+            //this.node = cc.find("Canvas/PlayNow");
+            this.play.setPosition(-236.899,-148.714)
+            //     this.node.setScale(1.9, 1.9);
+            this.play.setScale(0.4, 0.4);
+            //this.node = cc.find("Canvas/IconGame");
+            this.iconGame.setPosition(239,-134)
+            //     this.node.setScale(1.9, 1.9);
+            this.iconGame.setScale(0.4, 0.4);
+            this.text.setScale(0.5, 0.5);
+            this.text.setPosition(8.234, -10)
+            //this.node = cc.find("Canvas/Ship");
+            //     this.node.setScale(1.9, 1.9);
+            this.Ship.setScale(0.3, 0.3);
+            //console.log(this.node.getPosition());
+            this.Boss2.setScale(0.4,0.4)
+            if (this.setPositionNgang==false) {
+                //this.node = cc.find("Canvas/Ship")
+                this.Ship.setPosition(8.808,-144.453)
+                this.setPositionNgang = true;
+                //this.Ship.setPosition(10.003, -120)
+                this.setPositionDoc = false;
+                console.log("ngang");
+                
+            }
+           
+        }
         //   console.log("màn hình dọc");
         //   //this.node = cc.find("Canvas/playfreebutton");
         // //

@@ -14,7 +14,8 @@ export default class NewClass extends cc.Component {
     @property
     bulletTime: number = 100;
     @property
-    Hpenemy: number = 4;
+    radian: number = 0;
+    
     @property
     BulletSpeed:number =1000;
     @property
@@ -37,8 +38,8 @@ export default class NewClass extends cc.Component {
     }
     update(dt) {
         if (window.matchMedia("(orientation: landscape)").matches) {
-            this.node.setScale(1.3,1.3)
-            this.BulletSpeed = 500;
+            this.node.setScale(0.4,0.4)
+            this.BulletSpeed = 400;
             this.node.setRotation(this.rotation);
             let radian = this.radianNumber / 360 * 2 * Math.PI;
             this.bulletTime -= 3.5;
@@ -50,11 +51,18 @@ export default class NewClass extends cc.Component {
         }
         if (window.matchMedia("(orientation: portrait)").matches) {
             this.node.setScale(0.8,0.8)
-            this.BulletSpeed = 1000;
+            this.BulletSpeed = 500;
             this.node.setRotation(this.rotation);
-            let radian = this.radianNumber / 360 * 2 * Math.PI;
+            let radian1 = this.radianNumber / 360 * 2 * Math.PI;
+            this.radian+=0.4
             this.bulletTime -= 3.5;
-            this.node.setPosition(this.node.position.x += Math.cos(radian) * dt * this.BulletSpeed, this.node.position.y += Math.sin(radian) * this.BulletSpeed * dt);
+            if (this.radian<=3) {
+                this.node.setPosition(this.node.position.x +=3+Math.cos(this.radian) * dt * this.BulletSpeed, this.node.position.y += 5+ this.BulletSpeed * dt);
+            }
+            else
+            if (this.radian>3) {
+                this.node.setPosition(this.node.position.x += Math.cos(this.radianNumber / 360 * 2 * Math.PI) * dt * this.BulletSpeed, this.node.position.y += Math.sin(this.radianNumber / 360 * 2 * Math.PI) * this.BulletSpeed * dt);
+            }
             if (this.bulletTime == 0) {
                 this.node.destroy();
                 //this.node.position.y = this.node.position.y + 5;

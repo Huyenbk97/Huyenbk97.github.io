@@ -84,6 +84,7 @@ export default class Ship extends cc.Component {
         // this.node.angle=angleD;
     }
     onLoad() {
+        
         Ship.Instance = this;
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
@@ -98,7 +99,7 @@ export default class Ship extends cc.Component {
   
         }, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-            this.schedule(this.createBullet, 0.15, cc.macro.REPEAT_FOREVER);
+            this.schedule(this.createBullet, 0.1, cc.macro.REPEAT_FOREVER);
   
         }, this);
         
@@ -109,8 +110,17 @@ export default class Ship extends cc.Component {
         //this.node.parent.on('touchmove',this.startShotting,this);
         // }
         //console.log(this.bullet1);
-       
+        this.setTouch();
     }
+    setTouch() {
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+            var pos_ship = this.node.getPosition()
+            var pos_move = event.getDelta();
+            //console.log(pos_move);
+             
+            this.node.setPosition(cc.v2(pos_ship.x+pos_move.x,pos_move.y+pos_ship.y))
+        }, this);
+       }
     start() {
     }
     SpawnBullet() {
@@ -126,15 +136,28 @@ export default class Ship extends cc.Component {
     }
     createBullet() {
         if (this.text.active == false) {
-           
-            var Bullet = cc.instantiate(this.shipBullet1);
-            Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2);
-            this.node.parent.addChild(Bullet);
+            if (window.matchMedia("(orientation:  portrait)").matches) {
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2);
+                this.node.parent.addChild(Bullet);
 
-            var Bullet = cc.instantiate(this.shipBullet1);
-            Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2);
-            this.node.parent.addChild(Bullet);
-            
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2);
+                this.node.parent.addChild(Bullet);
+                //cc.audioEngine.setVolume(this.shoot, 0.5);
+                cc.audioEngine.playEffect(this.shoot,false);
+            }
+            if (window.matchMedia("(orientation: landscape)").matches) { 
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x + 10, this.node.position.y + this.node.height / 2-50);
+                this.node.parent.addChild(Bullet);
+
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x - 10, this.node.position.y + this.node.height / 2-50);
+                this.node.parent.addChild(Bullet);
+                cc.audioEngine.playEffect(this.shoot, false);
+                //cc.audioEngine.playEffect(this.shoot,false);
+            }
 
         }
       
@@ -177,6 +200,8 @@ export default class Ship extends cc.Component {
             this.text.active = true;
             this.bgblack.active = true;
             this.hand.active = true;
+            this.node.parent.getChildByName('IconGame').active=true
+            this.node.parent.getChildByName('PlayNow').active=true
         }, this);
         this.ship.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
             this.text.active = false;
@@ -184,21 +209,23 @@ export default class Ship extends cc.Component {
             this.hand.active = false;
         }, this);
         this.ship.on(cc.Node.EventType.TOUCH_START, function (event) {
+            this.node.parent.getChildByName('IconGame').active = false
+            this.node.parent.getChildByName('PlayNow').active=false
 
         }, this);
     }
     onCollisionEnter(other, self) {
-        console.log(self.name);
-        console.log(other.name);
+        //console.log(self.name);
+        //console.log(other.name);
         if (other.name == "boss26_bullet_2<BoxCollider>") {
             this.redD.getComponent(cc.Animation).play('shakeCamera');
             this.redDis.active = true;
             this.redDis.getComponent(cc.Animation).play('effectRed');
             //this.redDis.active = false;
-
+        
         }
         if (self.name == "Bullet33<BoxCollider>") {
-          console.log("test");
+          //console.log("test");
           
         }
     }

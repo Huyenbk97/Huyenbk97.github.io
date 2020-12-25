@@ -8,10 +8,19 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
+
 export default class NewClass extends cc.Component {
+    @property
+enemyNumber: number = 9; 
     action: cc.ActionInterval;
+    @property({
+        type: cc.AudioClip
+    })
+    explosion = null;
     @property(cc.Prefab)
     BulletEnemy: cc.Prefab = null;
+    @property(cc.Node)
+    test: cc.Node = null;
     @property(cc.Node)
     enemy1: cc.Node = null;
     @property(cc.Node)
@@ -25,9 +34,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     enemy6: cc.Node = null;
     @property(cc.Node)
+    cavas: cc.Node = null;
+    @property(cc.Node)
     enemy7: cc.Node = null;
     @property(cc.Node)
     enemy8: cc.Node = null;
+    @property(cc.Node)
+    enemy9: cc.Node = null;
     @property(cc.Node)
     redDes: cc.Node = null;
     @property(cc.Prefab)
@@ -49,6 +62,7 @@ export default class NewClass extends cc.Component {
     enemyLife: number = 100;
     @property
     enemyHp: number = 6;
+
     @property
     shieldHave: boolean = false;
     // LIFE-CYCLE CALLBACKS:
@@ -65,15 +79,39 @@ export default class NewClass extends cc.Component {
       
      
     }
+
     spawBullet() {
         try { 
-            var enemys = [this.enemy1, this.enemy2, this.enemy3, this.enemy4, this.enemy5, this.enemy6, this.enemy7, this.enemy8, this.enemy9]
-            var random = Math.floor(Math.random() * enemys.length);
-            //console.log(random);
-            //var randomX = [170,0,-170];
-            var newBullet = cc.instantiate(this.BulletEnemy);
-            newBullet.setPosition(enemys[random].position);
-            this.node.addChild(newBullet);
+            if (window.matchMedia("(orientation: portrait)").matches) {
+                var enemys = [this.enemy1, this.enemy2, this.enemy3, this.enemy4, this.enemy5, this.enemy6, this.enemy7, this.enemy8, this.enemy9]
+                var random = Math.floor(Math.random() * enemys.length);
+                //console.log(random);
+                //var randomX = [170,0,-170];
+                var newBullet = cc.instantiate(this.BulletEnemy);
+          
+                newBullet.setPosition(enemys[random].position.x , enemys[random].position.y );
+                //console.log(enemys[random]);
+           
+                this.node.addChild(newBullet);
+                //console.log(this.node.name);
+            
+                //console.log(newBullet.position);
+            }
+            if (window.matchMedia("(orientation: landscape)").matches) { 
+                var enemys = [this.enemy1, this.enemy2, this.enemy3, this.enemy4, this.enemy5, this.enemy6, this.enemy7, this.enemy8, this.enemy9]
+                var random = Math.floor(Math.random() * enemys.length);
+                //console.log(random);
+                //var randomX = [170,0,-170];
+                var newBullet = cc.instantiate(this.BulletEnemy);
+          
+                newBullet.setPosition(enemys[random].position.x + 100, enemys[random].position.y - 100);
+                //console.log(enemys[random]);
+           
+                this.node.addChild(newBullet);
+                //console.log(this.node.name);
+            
+                //console.log(newBullet.position);
+            }
         } catch (error) {
             //console.log("dung");
             
@@ -85,14 +123,23 @@ export default class NewClass extends cc.Component {
         if (other.name == "Bullet33<BoxCollider>") {
             this.enemyHp -= 1;
             other.node.destroy();
-            if (this.enemyHp==0) {
+            if (this.enemyHp == 0) {
+                this.enemyNumber--
+                console.log("enemyNumber"+this.enemyNumber);
+                
+                   
+       
+                 
                 self.node.destroy();
                 var explosion = cc.instantiate(this.expolosion);
                 explosion.setPosition(self.node.position);
                 this.node.parent.addChild(explosion) 
                 //console.log("chay no");
+                cc.audioEngine.playEffect(this.explosion,false);
                 this.redDes.getComponent(cc.Animation).play('shakeCamera');
-                this.node.parent.getComponent('GameController').spawShield(self.node.position.x,self.node.position.y);
+                //this.node.parent.getComponent('GameController').Bossactive();
+                this.node.parent.parent.getComponent('GameController').spawShield(self.node.position.x, self.node.position.y);
+                this.node.parent.getChildByName('Boss').getComponent('Boss').spawnBullet();
             }
            
         }
@@ -101,5 +148,9 @@ export default class NewClass extends cc.Component {
 
     }
 
-     update (dt) {}
+    update(dt) {
+       
+        //this.spawBullet(enemys);
+        this.schedule(this.spawBullet,2,cc.macro.REPEAT_FOREVER); 
+     }
 }

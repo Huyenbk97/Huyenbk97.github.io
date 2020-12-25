@@ -1,0 +1,152 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "animBoss2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 22,
+  "curveData": {
+    "paths": {
+      "boss25_right_wing copy": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0.25,
+              "value": 1
+            },
+            {
+              "frame": 0.5,
+              "value": -10
+            }
+          ],
+          "y": [
+            {
+              "frame": 0,
+              "value": 84,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.25,
+              "value": 48
+            }
+          ]
+        }
+      },
+      "boss25_right_wing": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0.25,
+              "value": 0
+            },
+            {
+              "frame": 0.5,
+              "value": 10
+            }
+          ],
+          "y": [
+            {
+              "frame": 0,
+              "value": 84,
+              "curve": "cubicOut"
+            },
+            {
+              "frame": 0.25,
+              "value": 48
+            }
+          ]
+        }
+      },
+      "boss25_smoke": {
+        "props": {
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 254
+            },
+            {
+              "frame": 0.06666666666666667,
+              "value": 150
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": 224.1249599851435
+            },
+            {
+              "frame": 0.25,
+              "value": 150
+            }
+          ]
+        }
+      },
+      "boss25_propeller": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 1
+            },
+            {
+              "frame": 0.25,
+              "value": 360
+            },
+            {
+              "frame": 0.5,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "boss25_propeller copy": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.25,
+              "value": 360
+            },
+            {
+              "frame": 0.5,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "boss25_head_2": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -117.522
+            },
+            {
+              "frame": 0.11666666666666667,
+              "value": -157
+            },
+            {
+              "frame": 0.25,
+              "value": -147
+            },
+            {
+              "frame": 0.38333333333333336,
+              "value": -157
+            },
+            {
+              "frame": 0.5,
+              "value": -117
+            }
+          ]
+        }
+      }
+    },
+    "props": {
+      "y": []
+    }
+  },
+  "events": []
+}

@@ -16,7 +16,8 @@ export default class NewClass extends cc.Component {
     @property
     text: string = 'hello';
 
-   
+    @property(cc.Node)
+    Ship: cc.Node = null;   
     @property
     BulletSpeed:number =10;
      timeToLive=700;
@@ -32,8 +33,17 @@ export default class NewClass extends cc.Component {
     start () {
 
     }
-    update (dt) {
-        var shieldMove = cc.moveTo(3, this.node.parent.getChildByName('Ship').position.x, this.node.parent.getChildByName('Ship').position.y)  
-        this.node.runAction(shieldMove);
+    update(dt) {
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            var shieldMove = cc.moveTo(3, this.node.parent.getChildByName('Ship').position.x, this.node.parent.getChildByName('Ship').position.y); 
+            this.node.runAction(shieldMove);
+            this.node.setScale(1, 1);
+        }
+        if (window.matchMedia("(orientation:landscape)").matches) {
+            var shieldMove = cc.moveTo(7, this.node.parent.getChildByName('Ship').position.x, this.node.parent.getChildByName('Ship').position.y);  
+            this.node.runAction(shieldMove);
+            this.node.setScale(0.4, 0.4); 
+    }
+
        }
 }
