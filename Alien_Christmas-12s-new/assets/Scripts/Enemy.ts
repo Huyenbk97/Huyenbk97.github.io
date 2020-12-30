@@ -120,7 +120,7 @@ enemyNumber: number = 9;
     onCollisionEnter(other, self) { 
          console.log(other.name+"other");
          console.log(self.name);
-        if (other.name == "Bullet33<BoxCollider>") {
+        if (other.name == "Bullet33<BoxCollider>"||other.name == "Bullet1<BoxCollider>"||other.name == "Bullet1<BoxCollider>"||other.name == "Bullet2<BoxCollider>"||other.name == "Bullet3<BoxCollider>"||other.name == "Bullet4<BoxCollider>"||other.name == "Bullet5<BoxCollider>"||other.name == "Bullet6<BoxCollider>") {
             this.enemyHp -= 1;
             other.node.destroy();
             if (this.enemyHp == 0) {

@@ -25,7 +25,7 @@ export default class NewClass extends cc.Component {
     // onLoad () {}
     updatePos(){
         this.node.x =-6.123+this.r * Math.cos(this.radian);
-        this.node.y = 263.205+this.r * Math.sin(this.radian);
+        this.node.y = 276.5389333+this.r * Math.sin(this.radian);
     }
     start () {
 

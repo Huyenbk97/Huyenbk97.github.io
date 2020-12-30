@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Bullet33 copy",
+    "_name": "Bullet6",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -42,8 +42,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 49,
-      "height": 127
+      "width": 34,
+      "height": 94
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -95,10 +95,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "50f15294-d2f2-4246-bbb6-58e11ef9aad8"
+      "__uuid__": "1c15c4b6-e76d-457e-9e03-3e5332be18b5"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -121,9 +121,11 @@
     "_enabled": true,
     "Cavas": null,
     "bulletTime": 100,
+    "radian": 0,
     "BulletSpeed": 1000,
-    "radianNumber": 95,
-    "rotation": -5,
+    "radianNumber": 94,
+    "expolosion": null,
+    "rotation": -4,
     "_id": ""
   },
   {

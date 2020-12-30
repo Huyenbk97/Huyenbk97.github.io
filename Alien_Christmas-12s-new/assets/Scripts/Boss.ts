@@ -212,20 +212,28 @@ export default class Boss extends cc.Component {
                     //this.cavas.getComponent('GameController').Bossactive1()
                     if (this.enemyNumber <=2) {
                         if (window.matchMedia("(orientation: portrait)").matches) {
-                      
+                           
                             var move = cc.moveTo(1, 10, 277)
                             this.Boss.runAction(move);
-                        }
-                    
-                        console.log("chay ddddd");
-                        this.spawBullet();
-                        if (window.matchMedia("(orientation: landscape)").matches) {
-                     
+                            var timeCallback = function (dt) {
+                                this.node.openStore();
+                            }
+                            this.scheduleOnce(
+                                timeCallback, 2);                                   
+                            //let action = cc.sequence(cc.delayTime(0.6), this.openStore();
+                        }               
+                        if (window.matchMedia("(orientation: landscape)").matches) { 
                             var move = cc.moveTo(1, 8, 100)
                             this.Boss.runAction(move);
+                            var timeCallback = function (dt) {
+                                this.openURL();
+                            this.scheduleOnce(
+                                timeCallback, 2);
+                               
+                                  }
                         }
-            
-                        //this.scheduleOnce(this.clickPopup,1);
+                      
+                  
                     }
                 }
           
@@ -233,14 +241,18 @@ export default class Boss extends cc.Component {
        
         } }
 
-    spawBullet() {
-        this.node.parent.parent.on(cc.Node.EventType.TOUCH_START, this.clickPopup)
-        this.node.parent.parent.on(cc.Node.EventType.TOUCH_MOVE, this.clickPopup)
+    openStore() {  
+            console.log("oooooo");
+            this.node.parent.parent.on(cc.Node.EventType.TOUCH_START, this.clickPopup);
+            this.node.parent.parent.on(cc.Node.EventType.TOUCH_MOVE, this.clickPopup);
+               
     }
-
+    opendelay() {
+        
+    }
     
     clickPopup() {
-        
+           
             if (cc.sys.os == cc.sys.OS_ANDROID) {
               cc.sys.openURL("https://play.google.com/store/apps/details?id=com.alien.shooter.galaxy.attack&hl=vi&gl=US");
             } else {
@@ -263,6 +275,7 @@ export default class Boss extends cc.Component {
     }
  
     update(dt) {
+
         this.setMove();
         //var screen = cc.find("Canvas");
        //console.log(screen.getContentSize().width);

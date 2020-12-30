@@ -10,8 +10,6 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
 
-    @property(cc.Label)
-    label: cc.Label = null;
     @property(cc.Node)
     Ship:cc.Node=null
     @property
@@ -19,16 +17,14 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Laser: cc.Node = null;
     @property
-    X: number = 500;
-    @property
     distance: number = 0;
     @property
      line:number =400;
     // LIFE-CYCLE CALLBACKS:
 
      onLoad () {
-         this.node.setContentSize(45, this.line);
-         var manager= cc.director.getCollisionManager();
+         this.node.setContentSize(45, cc.winSize.height);
+         var manager= cc.director.getCollisionManager();    
          manager.enabled = true;
          this.distance = 0;
          //this.schedule(this.setHEIGHT, 0.1, cc.macro.REPEAT_FOREVER);
@@ -40,8 +36,7 @@ export default class NewClass extends cc.Component {
 
     }
     onCollisionEnter(otherCollider, selfCollider) { 
-        console.log(selfCollider.name);
-        console.log(otherCollider.name);
+       
         var endPoint = cc.v2();
         endPoint.x = this.Ship.getPosition().x;
         endPoint.y = this.Ship.getPosition().y;
@@ -54,14 +49,16 @@ export default class NewClass extends cc.Component {
         //this.setHEIGHT(distance);
     }
     update(dt) {
-        
-        if (this.line <this.distance) {
+      
+        if (this.line > this.distance) {
+            this.line = cc.winSize.height;
            this.node.setContentSize(45,this.line)
         
         } else {
-            this.line = this.distance;
+            this.line = this.distance
             this.node.setContentSize(45,this.line)
         }
+        //this.node.setScale(1, this.line/50);
         //console.log(cc.winSize.height);
         
         // if (this.X<=50) {

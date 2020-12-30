@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Bullet33 copy",
+    "_name": "Bullet4",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -42,8 +42,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 24,
-      "height": 95
+      "width": 34,
+      "height": 94
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -54,23 +54,23 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -2,
-        109,
+        -2.45,
+        201.32569,
         0,
         0,
         0,
-        0,
-        1,
-        0.88889,
-        0.88889,
-        1
+        -0.008726535498373935,
+        0.9999619230641713,
+        1.38889,
+        1.38889,
+        1.38889
       ]
     },
     "_eulerAngles": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": -1
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -121,11 +121,11 @@
     "_enabled": true,
     "Cavas": null,
     "bulletTime": 100,
-    "radian": -7,
+    "radian": 0,
     "BulletSpeed": 1000,
-    "radianNumber": 83,
+    "radianNumber": 98,
     "expolosion": null,
-    "rotation": 0,
+    "rotation": -8,
     "_id": ""
   },
   {
@@ -139,13 +139,13 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": -0.3,
-      "y": -2.8
+      "x": 0,
+      "y": 0
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 30.4,
-      "height": 70.4
+      "width": 34,
+      "height": 94
     },
     "_id": ""
   },
@@ -155,9 +155,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "285dfc60-daa9-4ffa-a348-25f0981b2477"
+      "__uuid__": "aedbdaf9-7424-4bf1-882f-67761213170e"
     },
-    "fileId": "34NxhTuCVKTLmI1WFNb/d0",
+    "fileId": "ddhqyNEjdMc5WmzxfWJoWb",
     "sync": false
   }
 ]

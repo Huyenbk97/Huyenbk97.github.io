@@ -14,9 +14,14 @@ export default class NewClass extends cc.Component {
     @property
     bulletTime: number = 100;
     @property
+    radian: number = 0;
+    
+    @property
     BulletSpeed:number =1000;
     @property
     radianNumber: number = 75;
+    @property(cc.Prefab)
+    expolosion: cc.Node = null;
     // LIFE-CYCLE CALLBACKS:
     @property
     rotation: number = 0;
@@ -24,12 +29,18 @@ export default class NewClass extends cc.Component {
     start () {
 
     }
-   update(dt) {
-       
-       if (window.matchMedia("(orientation: portrait)").matches) {
-           this.node.setRotation(this.rotation);
-           this.node.setScale(1.4, 1.4);
-           for (let radianNumber=90; radianNumber <100; radianNumber++) {
+    onLoad() {
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+    }
+    onCollisionEnter(other, self) {
+
+    }
+    update(dt) {
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            this.node.setScale(2,2)
+            this.BulletSpeed = 400;
+            this.node.setRotation(this.rotation);
             let radian = this.radianNumber / 360 * 2 * Math.PI;
             this.bulletTime -= 3.5;
             this.node.setPosition(this.node.position.x += Math.cos(radian) * dt * this.BulletSpeed, this.node.position.y += Math.sin(radian) * this.BulletSpeed * dt);
@@ -37,23 +48,19 @@ export default class NewClass extends cc.Component {
                 this.node.destroy();
                 //this.node.position.y = this.node.position.y + 5;
             }
-               if (this.radianNumber==100) {
-                   this.radianNumber = 90;
-               }
-           }
-   
-       }
-       if (window.matchMedia("(orientation: landscape)").matches) { 
-        this.node.setRotation(this.rotation);
-           this.node.setScale(0.8,0.8);
-        let radian = this.radianNumber / 360 * 2 * Math.PI;
-        this.bulletTime -= 3.5;
-        this.node.setPosition(this.node.position.x += Math.cos(radian) * dt * this.BulletSpeed, this.node.position.y += Math.sin(radian) * this.BulletSpeed * dt);
-        if (this.bulletTime == 0) {
-            this.node.destroy();
-            //this.node.position.y = this.node.position.y + 5;
         }
-       }
-       }
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            this.node.setScale(0.9,0.9)
+            this.BulletSpeed = 800;
+            this.node.setRotation(this.rotation);
+            let radian = this.radianNumber / 360 * 2 * Math.PI;
+            this.node.setPosition(this.node.position.x += Math.cos(radian) * dt * this.BulletSpeed, this.node.position.y += Math.sin(radian) * this.BulletSpeed * dt);
+            if (this.bulletTime == 0) {
+                this.node.destroy();
+                //this.node.position.y = this.node.position.y + 5;
+            }
+  
+        }
+    }
     // update (dt) {}
 }

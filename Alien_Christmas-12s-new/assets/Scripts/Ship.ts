@@ -53,6 +53,7 @@ export default class Ship extends cc.Component {
     @property(cc.Prefab)
     @property
     rotation: number = 0;
+    @property(cc.Prefab)
     shipBullet7: cc.Node = null;
     @property(cc.Prefab)
     shipBullet8: cc.Node = null;
@@ -73,6 +74,8 @@ export default class Ship extends cc.Component {
     bulletParent: cc.Node = null;
     fireRate: number = 1;
     isGamestart: boolean = false;
+    @property
+    activeBullet: boolean = false;
     positionXY(event) {
         // //lay toa do xy tim ra goc xoay
         // var playerPosition =cc.v2(this.node.position.x,this.node.position.y);
@@ -85,6 +88,7 @@ export default class Ship extends cc.Component {
         // angleD=(angleD* -1)-180;
         // this.node.angle=angleD;
     }
+
     onLoad() {
         
         Ship.Instance = this;
@@ -102,7 +106,7 @@ export default class Ship extends cc.Component {
         }, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
             this.schedule(this.createBullet, 0.1, cc.macro.REPEAT_FOREVER);
-  
+      
         }, this);
         
         //   this.scheduleOnce(function() {
@@ -112,18 +116,29 @@ export default class Ship extends cc.Component {
         //this.node.parent.on('touchmove',this.startShotting,this);
         // }
         //console.log(this.bullet1);
-        this.setTouch();
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, this._ontouchmove, this)
+        this.node.on(cc.Node.EventType.TOUCH_START,this._ontouchmove,this)
+        //this.setTouch();
     }
-    setTouch() {
-        this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-            var pos_ship = this.node.getPosition()
-            var pos_move = event.getDelta();
-            //console.log(pos_move);
-             
-            this.node.setPosition(cc.v2(pos_ship.x+pos_move.x,pos_move.y+pos_ship.y))
-        }, this);
-       }
+    
+    closeTouch () {
+        this.node.off(cc.Node.EventType.TOUCH_MOVE, this._ontouchmove, this)
+    }
+
+    _ontouchmove(TouchEvent) {
+        let delta = TouchEvent.getDelta();
+     
+        this.node.position = delta.add(this.node.position);
+    }
+    // setTouch() {
+    //     this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+           
+
+    //         this.node.setPosition(cc.v2(pos_ship.x+pos_move.x,pos_move.y+pos_ship.y))
+    //     }, this);
+    //    }
     start() {
+    
     }
     SpawnBullet() {
         // var Bullet = cc.instantiate(this.BulletSkill2);
@@ -138,26 +153,55 @@ export default class Ship extends cc.Component {
     }
     createBullet() {
         if (this.text.active == false) {
-            if (window.matchMedia("(orientation:  portrait)").matches) {
+            if (window.matchMedia("(orientation:  portrait)").matches&& this.activeBullet==false) {
              
                 var Bullet = cc.instantiate(this.shipBullet1);
-                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2);
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2+50);
                 //Bullet.setRotation(this.rotation)
                 this.node.parent.addChild(Bullet);
-                var Bullet = cc.instantiate(this.shipBullet2);
-                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2);
-                this.node.parent.addChild(Bullet);
+               
                 var Bullet = cc.instantiate(this.shipBullet1);
-                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2+50);
                 this.node.parent.addChild(Bullet);
                 //cc.audioEngine.setVolume(this.shoot, 0.5);
                 cc.audioEngine.playEffect(this.shoot, false);
+                // var Bullet = cc.instantiate(this.shipBullet3);
+                // Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2-15);
+                // this.node.parent.addChild(Bullet);
+                // var Bullet = cc.instantiate(this.shipBullet4);
+                // Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2-25    );
+                // this.node.parent.addChild(Bullet);
+            } else if (window.matchMedia("(orientation:  portrait)").matches&& this.activeBullet==true) {
+                var Bullet = cc.instantiate(this.shipBullet2);
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2+10);
+                this.node.parent.addChild(Bullet);
                 var Bullet = cc.instantiate(this.shipBullet3);
-                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2-15);
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2+30);
                 this.node.parent.addChild(Bullet);
                 var Bullet = cc.instantiate(this.shipBullet4);
-                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2-25    );
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2+40);
+             
                 this.node.parent.addChild(Bullet);
+                var Bullet = cc.instantiate(this.shipBullet5);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2+10);
+                this.node.parent.addChild(Bullet);
+                var Bullet = cc.instantiate(this.shipBullet6);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2+30);
+                this.node.parent.addChild(Bullet);
+                var Bullet = cc.instantiate(this.shipBullet7);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2+40);
+             
+                this.node.parent.addChild(Bullet);
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x + 20, this.node.position.y + this.node.height / 2+50);
+                //Bullet.setRotation(this.rotation)
+                this.node.parent.addChild(Bullet);
+               
+                var Bullet = cc.instantiate(this.shipBullet1);
+                Bullet.setPosition(this.node.position.x - 20, this.node.position.y + this.node.height / 2+50);
+                this.node.parent.addChild(Bullet);
+                //cc.audioEngine.setVolume(this.shoot, 0.5);
+                cc.audioEngine.playEffect(this.shoot, false);
             }
             if (window.matchMedia("(orientation: landscape)").matches) { 
                 var Bullet = cc.instantiate(this.shipBullet1);
@@ -208,6 +252,10 @@ export default class Ship extends cc.Component {
         this.InitBullet();
     }
     update(dt) {
+        if (this.node.x > 360)this.node.x = 360
+        if (this.node.x < -360) this.node.x = -360
+        if (this.node.y > 640) this.node.y = 640
+        if (this.node.y < -640)this.node.y = -640
         this.rotation += dt;
         this.ship.on(cc.Node.EventType.TOUCH_END, function (event) {
             this.text.active = true;
@@ -230,6 +278,10 @@ export default class Ship extends cc.Component {
     onCollisionEnter(other, self) {
         //console.log(self.name);
         //console.log(other.name);
+        if (other.name== "SHield<BoxCollider>") {
+            console.log("shielll");
+            this.activeBullet = true;
+        }
         if (other.name == "boss26_bullet_2<BoxCollider>") {
             this.redD.getComponent(cc.Animation).play('shakeCamera');
             this.redDis.active = true;

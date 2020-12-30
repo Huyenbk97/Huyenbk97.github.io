@@ -350,6 +350,7 @@
     "_enabled": true,
     "label": null,
     "text": "hello",
+    "Ship": null,
     "BulletSpeed": 10,
     "_id": ""
   },
