@@ -59,18 +59,18 @@
         0,
         0,
         0,
-        0.008726535498373935,
-        0.9999619230641713,
-        1.38889,
-        1.38889,
-        1.38889
+        0.03489949670250097,
+        0.9993908270190958,
+        0.9,
+        0.9,
+        1
       ]
     },
     "_eulerAngles": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 1
+      "z": 4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -90,7 +90,7 @@
     "Cavas": null,
     "bulletTime": 100,
     "radian": 0,
-    "BulletSpeed": 600,
+    "BulletSpeed": 500,
     "radianNumber": 94,
     "expolosion": null,
     "rotation": -4,

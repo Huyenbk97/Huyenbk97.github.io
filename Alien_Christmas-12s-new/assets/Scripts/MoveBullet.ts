@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
     update(dt) {
         if (window.matchMedia("(orientation: landscape)").matches) {
             this.node.setScale(0.7,0.7)
-            this.BulletSpeed = 400;
+            this.BulletSpeed = 300;
             this.node.setRotation(this.rotation);
             let radian = this.radianNumber / 360 * 2 * Math.PI;
             this.bulletTime -= 3.5;
@@ -51,7 +51,7 @@ export default class NewClass extends cc.Component {
         }
         if (window.matchMedia("(orientation: portrait)").matches) {
             this.node.setScale(1.2,1.2)
-            this.BulletSpeed = 800;
+            this.BulletSpeed = 600;
             this.node.setRotation(this.rotation);
             let radian = this.radianNumber / 360 * 2 * Math.PI;
             this.node.setPosition(this.node.position.x += Math.cos(radian) * dt * this.BulletSpeed, this.node.position.y += Math.sin(radian) * this.BulletSpeed * dt);

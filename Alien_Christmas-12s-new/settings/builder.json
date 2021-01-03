@@ -2,7 +2,9 @@
   "title": "Alien_Christmas",
   "packageName": "org.cocos2d.demo",
   "startScene": "87c90f1e-11eb-4e24-8900-9cdeef43c92a",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "bb3bdfb0-6f38-4f96-8a85-2aeb2410abdd"
+  ],
   "includeSDKBox": false,
   "orientation": {
     "landscapeLeft": true,

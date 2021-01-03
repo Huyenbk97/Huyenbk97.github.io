@@ -70,7 +70,7 @@ enemyNumber: number = 9;
         var manager= cc.director.getCollisionManager();
         manager.enabled = true;
         var anim = this.getComponent(cc.Animation); 
-    this.schedule(this.spawBullet,2,cc.macro.REPEAT_FOREVER);   
+       this.schedule(this.spawBullet,1.5,cc.macro.REPEAT_FOREVER);   
       
      
     }
@@ -106,16 +106,12 @@ enemyNumber: number = 9;
             this.enemyHp -= 1;
             other.node.destroy();
             if (this.enemyHp == 0) {
-                this.enemyNumber--
-                
-                
-                   
-       
-                 
-                self.node.destroy();
+                this.enemyNumber-- 
+               
                 var explosion = cc.instantiate(this.expolosion);
                 explosion.setPosition(self.node.position);
                 this.node.parent.addChild(explosion) 
+                self.node.destroy();
                 cc.audioEngine.playEffect(this.explosion,false);
                 this.redDes.getComponent(cc.Animation).play('shakeCamera');
                 this.node.parent.parent.getComponent('GameController').spawShield(self.node.position.x, self.node.position.y);
@@ -128,6 +124,6 @@ enemyNumber: number = 9;
 
     }
     update(dt) {
-        this.schedule(this.spawBullet,2,cc.macro.REPEAT_FOREVER); 
+        this.schedule(this.spawBullet,1.5,cc.macro.REPEAT_FOREVER); 
      }
 }

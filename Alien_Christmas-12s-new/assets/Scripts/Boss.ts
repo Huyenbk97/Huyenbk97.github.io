@@ -42,6 +42,8 @@ export default class Boss extends cc.Component {
     @property(cc.Node)
     cavas: cc.Node = null;
     @property(cc.Node)
+    explotion: cc.Node=null;
+    @property(cc.Node)
     redDes: cc.Node = null;
     @property(cc.Node)
     bgBlack: cc.Node = null;
@@ -65,6 +67,8 @@ export default class Boss extends cc.Component {
         type:cc.AudioClip
     })
     Boss_explosion = null;
+    @property(cc.AnimationClip)
+    no2: Animation=null;
     onLoad() {
         
         Boss.Instance = this;
@@ -76,38 +80,43 @@ export default class Boss extends cc.Component {
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
        //this.moveEnemy = this.setMove();
-        this.node.runAction(this.moveEnemy);
+        //this.node.runAction(this.moveEnemy);
         this.schedule(this.spawnBullet, 3, cc.macro.REPEAT_FOREVER, 3.0);  
     }
     setMove() {
     }
     spawnBullet() {
-       this.enemyNumber--
-        //console.log(this.enemyNumber);
-        if (this.enemyNumber==0) {
-            //console.log("enemyNumber==0");
-            this.enemyClear = true;
-        }
-        if (this.enemyNumber == 4) {
-            
-        
-            if (window.matchMedia("(orientation: portrait)").matches) {
-               this.schedule(function() {
-                    // Here `this` is referring to the component
-                    this.schedule(this.spawnBullet, 2, cc.macro.REPEAT_FOREVER, 3.0);
-                    Bullet.setPosition(this.node.position.x , this.node.position.y);
-                    this.node.parent.addChild(Bullet);
-                }, 3, cc.macro.REPEAT_FOREVER, 1);
-                var Bullet = cc.instantiate(this.BulletBoss);
-            }
-            if (window.matchMedia("(orientation: landscape)").matches) { 
-                var Bullet = cc.instantiate(this.BulletBoss);
-                Bullet.setPosition(this.node.position.x=30, this.node.position.y-200);
-                this.node.parent.parent.addChild(Bullet);
-                this.schedule(this.spawnBullet, 2, cc.macro.REPEAT_FOREVER, 3.0);
-            }
-        }
+
+    this.enemyNumber--
+    //console.log(this.enemyNumber);
+    if (this.enemyNumber==0) {
+        //console.log("enemyNumber==0");
+        this.enemyClear = true;
     }
+    if (this.enemyNumber == 4) {   
+        if (window.matchMedia("(orientation: portrait)").matches) {
+     
+                // Here `this` is referring to the component
+               
+                try {
+                    
+                var Bullet = cc.instantiate(this.BulletBoss);
+                Bullet.setPosition(this.node.position.x , this.node.position.y);
+                this.node.addChild(Bullet);
+                this.schedule(this.spawnBullet, 2, cc.macro.REPEAT_FOREVER, 2);
+          
+        } catch (error) {
+                    
+        }
+        }
+        if (window.matchMedia("(orientation: landscape)").matches) { 
+            var Bullet = cc.instantiate(this.BulletBoss);
+            Bullet.setPosition(this.node.position.x=30, this.node.position.y-200);
+            this.node.addChild(Bullet);
+            this.schedule(this.spawnBullet,1.5, cc.macro.REPEAT_FOREVER, 2);
+        }
+} 
+}
     onCollisionEnter(otherCollider, selfCollider) {
         this.redDes.getComponent(cc.Animation).play('shakeCamera');
         otherCollider.node.destroy();
@@ -121,27 +130,35 @@ export default class Boss extends cc.Component {
                 this.BossHp--;
                 this.shieldHp--;
                 if (this.shieldHp == 40) {
-                     var action = cc.fadeOut(1.5);
-                    this.node.getChildByName('Giap1').destroy()
-                    this.node.getChildByName('Giap2').destroy();
+                     //var action = cc.fadeOut(1.5);
+                    this.node.getChildByName('Giap1').active=false;
+                    this.node.getChildByName('Giap2').active=false;
                 }
                 if (this.BossHp == 0) {
                     this.bossClear = true;
-                    var explosion = cc.instantiate(this.expolosionNode);
-                    explosion.setPosition(selfCollider.node.position);
-                    cc.audioEngine.playEffect(this.ExpolosionBoss, false);
-                    this.node.parent.addChild(explosion)
+                    // var explosion = cc.instantiate(this.expolosionNode);
+                    // explosion.setPosition(selfCollider.node.position);
                     this.node.destroy();
+                    cc.audioEngine.playEffect(this.ExpolosionBoss, false);
+                    // this.node.parent.addChild(explosion)
+                    this.explotion.active=true;
+                 
+                    this.explotion.getComponent(cc.Animation).play('no2');
+                   
+                    //this.redDes.getComponent(cc.Animation).play('shakeCamera'); 
+                   
                     if (this.enemyNumber <= 2) {
                         if (window.matchMedia("(orientation: portrait)").matches) {
                             var move = cc.moveTo(1, 10, 277)
                             this.Boss.runAction(move);
                             this.node.parent.parent.getComponent('GameController').delay();
+                            this.node.parent.parent.getChildByName('Ship').getComponent('Ship').endCard();
                         }               
                         if (window.matchMedia("(orientation: landscape)").matches) { 
                             var move = cc.moveTo(1, 8, 100)
                             this.Boss.runAction(move);
                             this.node.parent.parent.getComponent('GameController').delay();
+                            this.node.parent.parent.getChildByName('Ship').getComponent('Ship').endCard();
                         }
                       
                   
@@ -154,8 +171,7 @@ export default class Boss extends cc.Component {
 
     openStore() {  
             
-            this.node.parent.parent.on(cc.Node.EventType.TOUCH_START, this.clickPopup);
-            this.node.parent.parent.on(cc.Node.EventType.TOUCH_MOVE, this.clickPopup);
+         
                
     }
     opendelay() {
