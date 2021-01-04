@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "091c1ab5-f59b-4597-9c97-103d2ab7cdaa",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 128,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "spaceship4_skill2_bullet(147-163)": {
+      "ver": "1.0.4",
+      "uuid": "22def52e-e061-475f-a947-33d520294c2d",
+      "rawTextureUuid": "091c1ab5-f59b-4597-9c97-103d2ab7cdaa",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -2.5,
+      "trimX": 21,
+      "trimY": 9,
+      "width": 85,
+      "height": 115,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
