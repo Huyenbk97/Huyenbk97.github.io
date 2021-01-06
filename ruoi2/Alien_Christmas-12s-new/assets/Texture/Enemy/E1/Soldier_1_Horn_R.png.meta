@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3296ddf4-22a0-4dea-9859-50eb4122fc05",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 25,
+  "height": 43,
+  "platformSettings": {},
+  "subMetas": {
+    "Soldier_1_Horn_R": {
+      "ver": "1.0.4",
+      "uuid": "b38d1c86-e317-4269-9f9a-1eaa74a52b95",
+      "rawTextureUuid": "3296ddf4-22a0-4dea-9859-50eb4122fc05",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 25,
+      "height": 43,
+      "rawWidth": 25,
+      "rawHeight": 43,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
