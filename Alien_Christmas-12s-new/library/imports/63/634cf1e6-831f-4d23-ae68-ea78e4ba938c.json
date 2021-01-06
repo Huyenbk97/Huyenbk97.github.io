@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss_worldcup_right_wing_3",
+    "texture": "7d8f5ec7-969c-4f2d-897b-8616da3086a8",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      126,
+      354
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      134,
+      362
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

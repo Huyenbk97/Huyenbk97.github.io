@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "spaceship7_bullMain_skin5",
+    "texture": "0ea0e38e-d3d0-45f1-8c05-e93a8921f9c5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      128,
+      308
+    ],
+    "offset": [
+      0,
+      2.5
+    ],
+    "originalSize": [
+      128,
+      313
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

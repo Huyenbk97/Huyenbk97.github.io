@@ -114,7 +114,6 @@ export default class Boss extends cc.Component {
                 }
             }
             catch (error) {
-                console.log("loi");
                 
             }
             try {
@@ -134,16 +133,16 @@ export default class Boss extends cc.Component {
  
     }
     onCollisionEnter(otherCollider, selfCollider) {
-        this.redDes.getComponent(cc.Animation).play('shakeCamera');
+        //this.redDes.getComponent(cc.Animation).play('shakeCamera');
         var hit = cc.instantiate(this.hitDame);
         hit.setPosition(otherCollider.node.position);
         this.node.parent.addChild(hit)
         //cc.audioEngine.playEffect(this.ExpolosionBoss, false);
         otherCollider.node.destroy();
         if (selfCollider.name=="boss_worldcup_bullet_4<BoxCollider>") {
-            this.redDes.getComponent(cc.Animation).play('shakeCamera'); 
+            // 
             this.redDis.active = true;
-            this.redDis.getComponent(cc.Animation).play('effectRed');
+            //this.redDis.getComponent(cc.Animation).play('effectRed');
         }
         if (selfCollider.name == "Boss<PolygonCollider>") {
             if (this.enemyNumber <= 2) {
@@ -163,6 +162,7 @@ export default class Boss extends cc.Component {
                     cc.audioEngine.playEffect(this.victory, false);
                     this.node.parent.addChild(explosion)
                     this.node.destroy();
+                    this.redDes.getComponent(cc.Animation).play('shakeCamera');
                     if (this.enemyNumber <= 2) {
                         if (window.matchMedia("(orientation: portrait)").matches) {
                             var move = cc.moveTo(1, 10, 277)

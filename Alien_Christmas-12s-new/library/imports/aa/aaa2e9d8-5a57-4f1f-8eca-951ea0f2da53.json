@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss_worldcup_bullet_4",
+    "texture": "4af23c9b-8070-4584-991a-d3259d22f98c",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      48,
+      109
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      48,
+      111
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

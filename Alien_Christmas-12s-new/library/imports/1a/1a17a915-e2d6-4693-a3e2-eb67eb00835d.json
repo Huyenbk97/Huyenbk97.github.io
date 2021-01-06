@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "super_wing_6_left",
+    "texture": "c681eb81-6949-4247-b087-1ea186b4a7ff",
+    "atlas": "",
+    "rect": [
+      3,
+      4,
+      137,
+      253
+    ],
+    "offset": [
+      1.5,
+      -0.5
+    ],
+    "originalSize": [
+      140,
+      260
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

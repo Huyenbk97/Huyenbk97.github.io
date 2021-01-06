@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "spaceship_9_bullet_3_light",
+    "texture": "d3e9df43-1dba-4b64-b798-508d478f4678",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      181,
+      231
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      181,
+      231
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

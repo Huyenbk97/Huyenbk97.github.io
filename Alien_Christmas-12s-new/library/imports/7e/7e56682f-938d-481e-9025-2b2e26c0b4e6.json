@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ba_icon_heart",
+    "texture": "30455727-4a3f-4baf-b35a-0b135ab862d7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      24,
+      26
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      24,
+      26
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

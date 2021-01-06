@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss_16_bullet",
+    "texture": "fc7706ab-07cb-4fa1-8af9-bbdf13f11a55",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      97,
+      210
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      97,
+      210
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fly_robot35_head",
+    "texture": "6ca574c9-72fe-480d-a2f3-70c894c698b3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      106,
+      120
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      106,
+      120
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

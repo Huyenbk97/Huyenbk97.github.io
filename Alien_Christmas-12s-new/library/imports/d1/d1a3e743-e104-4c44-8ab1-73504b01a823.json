@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KHOI",
+    "texture": "b51cadc6-9fcd-46b8-aed5-f78643dc582d",
+    "atlas": "",
+    "rect": [
+      15,
+      19,
+      13,
+      64
+    ],
+    "offset": [
+      1.5,
+      -2.5
+    ],
+    "originalSize": [
+      40,
+      97
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

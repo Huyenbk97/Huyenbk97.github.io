@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "spaceship7_skin2_bullet_1",
+    "texture": "c9084598-017a-4b53-bd87-7f904bb9817e",
+    "atlas": "",
+    "rect": [
+      11,
+      3,
+      55,
+      315
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      77,
+      321
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

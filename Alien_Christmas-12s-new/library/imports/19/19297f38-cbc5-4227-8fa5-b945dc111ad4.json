@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss25_head",
+    "texture": "e6a71c1d-395f-49d5-af6c-652f10f5a7f8",
+    "atlas": "",
+    "rect": [
+      185,
+      0,
+      186,
+      305
+    ],
+    "offset": [
+      92.5,
+      1
+    ],
+    "originalSize": [
+      371,
+      307
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

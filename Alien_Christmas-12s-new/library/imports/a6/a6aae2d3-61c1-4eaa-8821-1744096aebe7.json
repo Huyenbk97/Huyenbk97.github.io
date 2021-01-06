@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "blood_column_active",
+    "texture": "0780e9fb-3309-4e4c-b2ce-94803dc4ef50",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      360,
+      18
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      360,
+      18
+    ],
+    "capInsets": [
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+}

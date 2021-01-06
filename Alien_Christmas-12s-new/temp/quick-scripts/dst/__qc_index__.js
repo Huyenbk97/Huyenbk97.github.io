@@ -1,0 +1,66 @@
+
+                (function() {
+                    var nodeEnv = typeof require !== 'undefined' && typeof process !== 'undefined';
+                    var __module = nodeEnv ? module : {exports:{}};
+                    var __filename = 'preview-scripts/__qc_index__.js';
+                    var __require = nodeEnv ? function (request) {
+                        return cc.require(request);
+                    } : function (request) {
+                        return __quick_compile_project__.require(request, __filename);
+                    };
+                    function __define (exports, require, module) {
+                        if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
+require('./assets/Scripts/AutoDestroy');
+require('./assets/Scripts/Bad');
+require('./assets/Scripts/Boss');
+require('./assets/Scripts/Bullet');
+require('./assets/Scripts/BulletBossMove');
+require('./assets/Scripts/Camera_Controller');
+require('./assets/Scripts/Enemy - 001');
+require('./assets/Scripts/Enemy');
+require('./assets/Scripts/EnemyController');
+require('./assets/Scripts/EnemyShip');
+require('./assets/Scripts/ExpolosionEnemy');
+require('./assets/Scripts/Game');
+require('./assets/Scripts/GameController');
+require('./assets/Scripts/GameUIcontroller');
+require('./assets/Scripts/Gameplay');
+require('./assets/Scripts/HandMove');
+require('./assets/Scripts/InitBossController');
+require('./assets/Scripts/Lazer');
+require('./assets/Scripts/LoadScene');
+require('./assets/Scripts/Meteror');
+require('./assets/Scripts/MoveBullet');
+require('./assets/Scripts/MoveEnemyCirle');
+require('./assets/Scripts/NewScript');
+require('./assets/Scripts/Plane');
+require('./assets/Scripts/Player');
+require('./assets/Scripts/PopupWindow');
+require('./assets/Scripts/Resize');
+require('./assets/Scripts/Scroll - 001');
+require('./assets/Scripts/Scroll');
+require('./assets/Scripts/ShieldMove');
+require('./assets/Scripts/Ship');
+require('./assets/Scripts/ShipMove');
+require('./assets/Scripts/Spaceship');
+require('./assets/Scripts/SpriteEx');
+require('./assets/Scripts/Test');
+require('./assets/Scripts/TestBullets');
+require('./assets/Scripts/TestLazer');
+require('./assets/Scripts/TestMoveEnemy');
+require('./assets/Scripts/bulletEnemy');
+require('./assets/Scripts/bulletMove1');
+require('./assets/Scripts/moveTest1');
+require('./assets/Scripts/smoke');
+require('./assets/Scripts/taptoplay');
+
+                    }
+                    if (nodeEnv) {
+                        __define(__module.exports, __require, __module);
+                    }
+                    else {
+                        __quick_compile_project__.registerModuleFunc(__filename, function () {
+                            __define(__module.exports, __require, __module);
+                        });
+                    }
+                })();

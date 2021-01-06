@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"shakeCamera","_duration":0.3333333333333333,"wrapMode":0,"curveData":{"props":{"position":[{"frame":0,"value":[0,0,0]},{"frame":0.3333333333333333,"value":[0,0,0]}]},"paths":{"Bg_1":{"props":{"position":[]}},"Bg_2":{"props":{"position":[]}}}}}

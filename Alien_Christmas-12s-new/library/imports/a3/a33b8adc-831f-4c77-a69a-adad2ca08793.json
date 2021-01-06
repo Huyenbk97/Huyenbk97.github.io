@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Mystic Assassin1",
+    "texture": "1729da2a-d48a-4050-92fd-f08972f0a63a",
+    "atlas": "",
+    "rect": [
+      7,
+      6,
+      139,
+      139
+    ],
+    "offset": [
+      1.5,
+      -1
+    ],
+    "originalSize": [
+      150,
+      149
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

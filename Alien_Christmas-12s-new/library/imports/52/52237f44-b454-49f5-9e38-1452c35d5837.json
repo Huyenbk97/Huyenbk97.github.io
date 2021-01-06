@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss25_right_wing",
+    "texture": "7c217179-bb39-4d45-a7ff-823d6ef337a9",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      156,
+      360
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      164,
+      368
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

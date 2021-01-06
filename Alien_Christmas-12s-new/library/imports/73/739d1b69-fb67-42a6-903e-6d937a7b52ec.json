@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Khien",
+    "texture": "8ff4f7bf-2558-4bcd-95a4-998824a9de36",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      107,
+      99
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      107,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

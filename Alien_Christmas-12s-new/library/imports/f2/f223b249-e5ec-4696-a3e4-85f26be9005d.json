@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "big_boss_smoke",
+    "texture": "9c52fc3c-b918-4a1d-885a-4cb6ffb6c548",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      26,
+      180
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      26,
+      180
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "spaceship4_skill2_bullet(147-163)",
+    "texture": "091c1ab5-f59b-4597-9c97-103d2ab7cdaa",
+    "atlas": "",
+    "rect": [
+      21,
+      9,
+      85,
+      115
+    ],
+    "offset": [
+      -0.5,
+      -2.5
+    ],
+    "originalSize": [
+      128,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

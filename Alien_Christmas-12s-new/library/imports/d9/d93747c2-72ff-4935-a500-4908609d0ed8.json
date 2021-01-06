@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boss_worldcup_gun",
+    "texture": "c90ac7e0-6378-47b3-8b06-f9488ce85596",
+    "atlas": "",
+    "rect": [
+      40,
+      2,
+      37,
+      162
+    ],
+    "offset": [
+      18.5,
+      0.5
+    ],
+    "originalSize": [
+      80,
+      167
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

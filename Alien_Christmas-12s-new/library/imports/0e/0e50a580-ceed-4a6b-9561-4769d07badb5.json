@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ONGKHOI",
+    "texture": "9d421d8b-9535-4d35-b251-44e6dbf47227",
+    "atlas": "",
+    "rect": [
+      10,
+      20,
+      36,
+      64
+    ],
+    "offset": [
+      -3,
+      -1
+    ],
+    "originalSize": [
+      62,
+      102
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
