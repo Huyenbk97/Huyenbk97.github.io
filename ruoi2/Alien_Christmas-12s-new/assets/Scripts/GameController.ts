@@ -224,6 +224,7 @@ export default class GameController extends cc.Component {
                 // this.play.setPosition(12.073,-548.461)
                 // //     this.node.setScale(1.9, 1.9);
                  this.play.setScale(0.8, 0.8);
+                 this.play.setPosition(cc.v2(0,-screen1.height/2*7/8));
                 //this.node = cc.find("Canvas/TEXT");
                 //     this.node.setScale(1.9, 1.9);
                 this.text.setScale(0.8, 0.8);
@@ -233,11 +234,13 @@ export default class GameController extends cc.Component {
             else {
                 this.Boss2.setScale(0.9,0.9)
             //     this.iconGame.setPosition(269.82,-550.508)
-             
+                var screen1 = cc.find("Canvas");
                  this.iconGame.setScale(0.9, 0.9); 
+                 this.iconGame.setPosition(cc.v2(screen1.width/2*2/3,-screen1.height/2*7/8));
                 // this.play.setPosition(12.073,-548.461)
-                
+                this.iconGame.setPosition(cc.v2(screen1.width/2*2/3,-screen1.height/2*7/8));
                  this.play.setScale(0.9, 0.9);
+                 this.play.setPosition(cc.v2(16,-screen1.height/2*7/8));
                 //this.node = cc.find("Canvas/TEXT");
                 //     this.node.setScale(1.9, 1.9);
                 this.text.setScale(1, 1);
@@ -260,11 +263,12 @@ export default class GameController extends cc.Component {
             this.node.setScale(0.3, 0.3);
             this.node.setPosition(21,-10)
             //this.node = cc.find("Canvas/PlayNow");
-            this.play.setPosition(8,-174)
+            var screen1 = cc.find("Canvas");
+            this.play.setPosition(cc.v2(8,-screen1.width/2*1.45/3))
             //     this.node.setScale(1.9, 1.9);
             this.play.setScale(0.3, 0.3);
             //this.node = cc.find("Canvas/IconGame");
-            this.iconGame.setPosition(239,-174)
+            this.iconGame.setPosition(cc.v2(screen1.height/2*1.45/3,-screen1.width/2*1.4/3))
             //     this.node.setScale(1.9, 1.9);
             this.iconGame.setScale(0.4, 0.4);
             this.text.setScale(0.4, 0.4);
