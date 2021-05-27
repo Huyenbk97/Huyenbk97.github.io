@@ -191,7 +191,35 @@ p.footer {
 
   <!-- //main -->
 
+<script type="text/javascript" charset="utf-8">
+    function startGame() {
 
+    function boot () {
+        
+        var settings = window._CCSettings;
+        window._CCSettings = undefined;
+        var onProgress = null;
+
+        let { RESOURCES, INTERNAL, MAIN, START_SCENE } = cc.AssetManager.BuiltinBundleName;
+        function setLoadingDisplay () {
+            // Loading splash scene
+            var splash = document.getElementById('splash');
+            var progressBar = splash.querySelector('.progress-bar span');
+            onProgress = function (finish, total) {
+                var percent = 100 * finish / total;
+                if (progressBar) {
+                    progressBar.style.width = percent.toFixed(2) + '%';
+                }
+            };
+            splash.style.display = 'block';
+            progressBar.style.width = '0%';
+
+            cc.director.once(cc.Director.EVENT_AFTER_SCENE_LAUNCH, function () {
+                splash.style.display = 'none';
+            });
+        }
+
+        
         var onStart = function () {
 
             cc.view.enableRetina(true);
